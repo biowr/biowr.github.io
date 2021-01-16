@@ -24,7 +24,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link rel="stylesheet" href="/css/default.css" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/blog.css" crossorigin="anonymous">
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://chaoxuprime.com/rss.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml">
   </head>
   <body>
     <header class="hide-on-print">
@@ -32,15 +32,19 @@
             <a href="/blog.html">The Art Gallery Guardian</a>
         </div>
         <div style="display: none;">
-          <img src="/files/chao/chao_thumb.jpg">
+          <img src="/files/wang/logo.jpg">
         </div>
     </header>
     <nav class="hide-on-print">
       <ul>
-        <li><a href="/">About</a></li>
-        <li><a href="/blog.html">Blog</a></li>
+               <li><a href="/">About</a></li>
+        <li><a href="/pages/blog.html">Blog</a></li>
+	   <li><a href="/pages/vlog.html">Vlog</a></li>
         <li><a href="/files/cv.pdf">CV</a></li>
-        <li><a href="/tools.html">Tools</a></li>
+       <li><a href="/pages/tools.html">Tools</a></li>
+       <li><a href="/pages/film.html">Film</a></li>
+       <li><a href="/pages/24fps.html">24 FPS</a></li>
+          
       </ul>
     </nav>
     <main>
@@ -56,7 +60,7 @@
 <li>The theme is <a href="http://tarskitheme.com/">Tarski</a> with few changes.</li>
 <li>The math are shown with <a href="https://katex.org/">KaTex</a>.</li>
 <li>The heading themes are similar to <a href="http://www.amazon.com/gp/product/0199205272/ref=as_li_ss_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0199205272&amp;linkCode=as2&amp;tag=fighterempire-20">Connections in Combinatorial Optimization</a>, and the remaining themes are similar to <a href="http://www.amazon.com/gp/product/0387984038/ref=as_li_ss_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0387984038&amp;linkCode=as2&amp;tag=fighterempire-20">Categories for the Working Mathematician</a>. The symbols are of KaTeX.</li>
-<li>To compile just <code>ChaoDoc.hs</code>, you need <code>pandoc</code> and <code>pandoc-citeproc</code>. To compile the <code>site.hs</code>, additionally you need <code>hakyll</code>.</li>
+<li>To compile just <code>Doc.hs</code>, you need <code>pandoc</code> and <code>pandoc-citeproc</code>. To compile the <code>site.hs</code>, additionally you need <code>hakyll</code>.</li>
 <li>For the homepage, I generate with python. Needs to run <code>pip install pyyaml mistune jinja2 bs4</code> on a new machine.</li>
 <li>More hacks, KaTeX offline compilation. Requires <code>jsdom</code>, <code>katex</code> and <code>node.js</code>, so <code>npm install jsdom katex</code>.</li>
 </ol>
@@ -66,7 +70,7 @@
 </ul>
       </article>
     </main>
-    <footer class="hide-on-print">© 2010 - <time><script>document.write(new Date().getFullYear())</script></time> <a href="https://chaoxuprime.com" rel="author">Chao Xu</a>. Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+    <footer class="hide-on-print">© 2016 - <time><script>document.write(new Date().getFullYear())</script></time> <a href="/" rel="author">Rui Wang</a>.
     <a href="/README.html">Blog README</a>.</footer>
   
 
