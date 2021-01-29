@@ -180,18 +180,36 @@ var _hmt = _hmt || [];
 </tr>
       
       
-<div id="vk_post_636365706_3"></div>
-<script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
+<strong>
+<center>
+<span id="showsectime" style="color:#FF0000;"></span>
 <script type="text/javascript">
-  (function() {
-    VK.Widgets.Post("vk_post_636365706_3", 636365706, 3, '3ijBAppx1b1snFhiDvS2vDtkMAiD');
-  }());
+function NewDate(str) { 
+str = str.split('-'); 
+var date = new Date(); 
+date.setUTCFullYear(str[0], str[1] - 1, str[2]); 
+date.setUTCHours(0, 0, 0, 0); 
+return date; 
+} 
+function showsectime() {
+var birthDay =NewDate("2017-11-22");
+var today=new Date();
+var timeold=today.getTime()-birthDay.getTime();
+var sectimeold=timeold/1000
+var secondsold=Math.floor(sectimeold);
+var msPerDay=24*60*60*1000; var e_daysold=timeold/msPerDay;
+var daysold=Math.floor(e_daysold);
+var e_hrsold=(daysold-e_daysold)*-24;
+var hrsold=Math.floor(e_hrsold);
+var e_minsold=(hrsold-e_hrsold)*-60;
+var minsold=Math.floor((hrsold-e_hrsold)*-60); var seconds=Math.floor((minsold-e_minsold)*-60).toString();
+document.getElementById("showsectime").innerHTML = "本站已安全运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+setTimeout(showsectime, 1000);
+}showsectime();
 </script>
+<strong/>
     
-<iframe src="https://vk.com/video_ext.php?oid=636365706&id=456239018&hash=767ef90bcf75ae0b&hd=2" width="520" height="520" frameborder="0" allowfullscreen></iframe>   
 
-	<iframe width="720" height="405" frameborder="0" allowfullscreen src="https://www.ixigua.com/iframe/6858086720697860621?autoplay=0&startTime=0"> </iframe>
-    
 
 </tbody></table> 
 
