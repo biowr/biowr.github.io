@@ -182,7 +182,7 @@ var _hmt = _hmt || [];
       
 <strong>
 <center>
-<span id="showsectime" style="color:#FF0000;"></span>
+<span id="showsectime" style="color:#D3D3D3;"></span>
 <script type="text/javascript">
 function NewDate(str) { 
 str = str.split('-'); 
@@ -209,7 +209,25 @@ setTimeout(showsectime, 1000);
 </script>
 <strong/>
     
+<script>
+  let divTyping = document.getElementById('text')
+  let i = 0,
+    timer = 0,
+    str = '我的花生命是短暂的，她只有四根刺可以保护自己，抵御世界，我却将她独自留在我的星球上'
 
+  function typing () {
+    if (i <= str.length) {
+      divTyping.innerHTML = str.slice(0, i++) + '_'
+      timer = setTimeout(typing, 200)
+    }
+    else {
+      divTyping.innerHTML = str//结束打字,移除 _ 光标
+      clearTimeout(timer)
+    }
+  }
+
+  typing()
+</script>
 
 </tbody></table> 
 
