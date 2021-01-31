@@ -13,8 +13,8 @@ body{ background-color:#FFFFFF}
 	left: 0;
 	pointer-events: none;
 	background-size: 60px auto;
-	-webkit-transition: opacity 0.2s;
-	transition: opacity 0.2s;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
 }
 
 .js .grid--loaded::after {
@@ -23,7 +23,7 @@ body{ background-color:#FFFFFF}
 
 .grid__item {
 	width: 270px;
-	padding: 5px;
+	padding: 10px;
 }
 
 .grid__item--current {
