@@ -64,7 +64,9 @@
     <guid>https://ruiprime.com/pages/tools.html/</guid>
     <dc:creator>Rui Wang</dc:creator>
 </item>
-
+	     
+<title>Blog</title>
+    <link>https://ruiprime.com/pages/blog.html</link>
 
     </channel>
 </rss>
