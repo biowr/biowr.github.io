@@ -1,7 +1,7 @@
 body {
     margin:0;
     padding:0;
-    background:#fdfdfd;
+    background:#fafafa;
     display:flex;
     align-items:center;
     justify-content:bewteen;
@@ -13,9 +13,9 @@ nav {
   justify-content:center;
   align-items:center;
   width:100%;
-  height:3rem;
-  background: #4b8e8d;
-  color: white;
+  height:2rem;
+  background: #ffffff;
+  color:#000000;
   font-size:1.4rem;
   box-shadow: 0 5px 10px 0 rgba(0,64,128,.25);
   margin-bottom: 2rem;
@@ -42,7 +42,7 @@ a.item {
   display: flex;
   align-items:center;
   text-decoration: none; 
-  color: #396362;
+  color: #ffffff;
   padding: 0.8rem 1rem;
   transition: .5s hover linear;	
 }
@@ -54,10 +54,10 @@ a.item:hover {
 }
 footer {
   font-size: 0.8rem;
-  color: #396362;
+  color: #ffffff;
 }
 footer a {
-  color: #396362; 
+  color: #ffffff; 
 }
 
 .readme {
