@@ -1,0 +1,186 @@
+<!DOCTYPE html><html lang="en">
+	
+	
+	<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The Art Gallery Guardian">
+    <meta name="author" content="Rui Wang">
+    <meta property="og:title" content="年轻人的第一个网站｜hexo详细搭建教程">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="The Art Gallery Guardian">
+    <meta property="article:tag" content="math, life">
+    <title>年轻人的第一个网站｜hexo详细搭建教程</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+ 
+ 
+<!-- 百度统计-->
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e076e26dccfe62cef6ef9a32f56a65e5";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/default.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/blog.css" crossorigin="anonymous">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://biowr.github.io/rss.xml">
+  </head>
+  <body>
+    <header class="hide-on-print">
+        <div id="site-title">
+            <a href="/blog.html">The Art Gallery Guardian</a>
+        </div>
+        <div style="display: none;">
+          <img src="/files/wang/logo.png">
+        </div>
+    </header>
+    <nav class="hide-on-print">
+      <ul>
+         <li><a href="/">About</a></li>
+        <li><a href="/pages/blog.html">Blog</a></li>
+	   <li><a href="/pages/vlog.html">Vlog</a></li>
+        <li><a href="/files/cv.pdf">CV</a></li>
+       <li><a href="/pages/tools.html">Tools</a></li>
+       <li><a href="/pages/film.html">Film</a></li>
+       <li><a href="/pages/24fps.html">24 FPS</a></li>
+      </ul>
+    </nav>
+    <main>
+      <article>
+        <h1 id="article-title"><body><h1>年轻人的第一个网站｜hexo详细搭建教程,使用Github Pages</h1>/h1>
+        <br>
+<!--文章主体-->
+	     
+
+<p>之前一直在寻找合适的建站方法，想把自己的写的文章和拍的照片视频放上去。偶然看到一个主题特别喜欢，突然有了搭建下去的冲动，开始了人生中第一个搭建网站之路。</p>
+<h2>搭建步骤</h2>
+<ul>
+<li>购买域名</li>
+<li>创建GitHub仓库</li>
+<li>安装Git</li>
+<li>安装Node.js</li>
+<li>安装Hexo</li>
+<li>推送网站</li>
+<li>绑定域名</li>
+<li>更换主题</li>
+<li>学习MarkDown语法</li>
+<li>发布文章</li>
+<li>使用图床</li>
+
+</ul>
+<p>&nbsp;</p>
+<h3>购买域名</h3>
+<p>域名注册商有很多，国内用户推荐在阿里云万网购买，除去优惠算是最便宜的了。</p>
+<p><a href='https://wanwang.aliyun.com/' target='_blank' class='url'>https://wanwang.aliyun.com/</a></p>
+<p>购买之后可以自定义DNS服务器，最后续CNAME作准备。</p>
+<h3>创建GitHub仓库</h3>
+<p>当然先要注册一个GitHub账户啦，注册之后，新建一个仓库。假如你的用户名是 biowr，创建的仓库名就要是这样的 biowr.github.io , 其他默认就好。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/biowr/biowr.github.io/pic/picgo/image-20210218135542640.png" referrerpolicy="no-referrer" alt="image-20210218135542640"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/biowr/biowr.github.io/pic/picgo/image-20210218135454538.png" referrerpolicy="no-referrer" alt="image-20210218135454538"></p>
+<h3>安装Git</h3>
+<p>官网地址：<a href='https://git-scm.com/about' target='_blank' class='url'>https://git-scm.com/about</a></p>
+<p>选择合适的版本安装</p>
+<p>设置user.name和user.email配置信息</p>
+<pre><code class='language-shell' lang='shell'>git config --global user.name &quot;你的GitHub用户名&quot;
+git config --global user.email &quot;你的GitHub注册邮箱&quot;
+</code></pre>
+<p>生成ssh密钥文件：</p>
+<pre><code class='language-shell' lang='shell'>ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/biowr/biowr.github.io/pic/picgo/image-20210218142814899.png" referrerpolicy="no-referrer" alt="image-20210218142814899"></p>
+<p>然后找到生成的.ssh的文件夹中的id_rsa.pub密钥，将内容全部复制到github</p>
+<p>打开<a href='https://link.zhihu.com/?target=https%3A//github.com/settings/keys'>GitHub_Settings_keys</a> 页面，新建new SSH Key</p>
+<p><img src="https://cdn.jsdelivr.net/gh/biowr/biowr.github.io/pic/picgo/image-20210218143339902.png" referrerpolicy="no-referrer" alt="image-20210218143339902"></p>
+<p>Title为标题，任意填即可，将刚刚复制的id_rsa.pub内容粘贴进去，最后点击Add SSH key。
+在Git Bash中检测GitHub公钥设置是否成功，输入 ssh <a href='mailto:git@github.com' target='_blank' class='url'>git@github.com</a> </p>
+<p><img src="https://cdn.jsdelivr.net/gh/biowr/biowr.github.io/pic/picgo/image-20210218143707892.png" referrerpolicy="no-referrer" alt="image-20210218143707892"></p>
+<p>&nbsp;</p>
+<h3>安装Node.js</h3>
+<p>官网下载地址：<a href='https://nodejs.org/zh-cn/download/' target='_blank' class='url'>https://nodejs.org/zh-cn/download/</a></p>
+<p>选择合适的版本安装</p>
+<p><img src="https://cdn.jsdelivr.net/gh/biowr/biowr.github.io/pic/picgo/image-20210218140132787.png" referrerpolicy="no-referrer" alt="image-20210218140132787"></p>
+<p>Hexo基于Node.js，注意安装Node.js会包含环境变量及npm的安装，安装后，检测Node.js是否安装成功，在命令行中输入 node -v :</p>
+<p><img src="https://cdn.jsdelivr.net/gh/biowr/biowr.github.io/pic/picgo/image-20210218144205520.png" referrerpolicy="no-referrer" alt="image-20210218144205520"></p>
+<h3>安装Hexo</h3>
+<p>Hexo就是我们的个人博客网站的框架， 这里需要自己在电脑常里创建一个文件夹，可以命名为Blog，Hexo框架与以后你自己发布的网页都在这个文件夹中。创建好后，进入文件夹中，选择终端运行。</p>
+<p>输入：</p>
+<pre><code class='language-shell' lang='shell'>npm install -g hexo-cli 
+</code></pre>
+<p>这个安装时间较长耐心等待，安装完成后，初始化我们的博客，输入：</p>
+<pre><code class='language-shell' lang='shell'>hexo init
+</code></pre>
+<h3>推送网站</h3>
+<p>修改根目录里的_config.yml文件称为<strong>站点</strong>配置文件，如下图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/biowr/biowr.github.io/pic/picgo/image-20210218150659303.png" referrerpolicy="no-referrer" alt="image-20210218150659303"></p>
+<p>下一步将我们的Hexo与GitHub关联起来，打开站点的配置文件_config.yml，翻到最后修改为：</p>
+<pre><code>deploy:
+    type: git
+    repo: 这里填入你之前在GitHub上创建仓库的完整路径，记得加上 .git
+    branch: master参考如下：
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/biowr/biowr.github.io/pic/picgo/image-20210218150835268.png" referrerpolicy="no-referrer" alt="image-20210218150835268"></p>
+<p>其实就是给hexo d 这个命令做相应的配置，让hexo知道你要把blog部署在哪个位置，很显然，我们部署在我们GitHub的仓库里。最后安装Git部署插件，输入命令：</p>
+<pre><code class='language-basemake' lang='basemake'>npm install hexo-deployer-git --save
+</code></pre>
+<p>这时，我们分别输入三条命令：</p>
+<pre><code class='language-shell' lang='shell'>hexo g 
+hexo d
+</code></pre>
+<p> hexo d 就是部署网站命令，d是deploy的缩写。完成后，打开浏览器输入刚刚的仓库名biowr.github.io，就可以看到自己的网站啦</p>
+<h3>绑定域名</h3>
+<p>在仓库的settings 绑定自己的域名，然后在博客根目录source文件夹创建CNAME文件，新建txt文档，填写自己绑定的域名，去掉文件后缀。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/biowr/biowr.github.io/pic/picgo/image-20210218153321708.png" referrerpolicy="no-referrer" alt="image-20210218153321708"></p>
+<p>&nbsp;</p>
+<p><img src="https://cdn.jsdelivr.net/gh/biowr/biowr.github.io/pic/picgo/image-20210218152659496.png" referrerpolicy="no-referrer" alt="image-20210218152659496"></p>
+<p>接着进入博客目录中，打开命令行，依次输入：</p>
+<pre><code class='language-shell' lang='shell'>hexo clean
+hexo g
+hexo d
+</code></pre>
+<p>这时候打开浏览器在地址栏输入你的个性化域名将会直接进入你自己搭建的网站。</p>
+<h3>更换主题</h3>
+<p>如果你不喜欢Hexo默认的主题，可以更换不同的主题，主题传送门：<a href='https://link.zhihu.com/?target=https%3A//hexo.io/themes/'>Themes</a> ，我自己使用的是<a href='https://www.sharvaridesai.com'>standrews</a>，这个主题是我向作者10美元购买的，可以在blog目录中的themes文件夹中查看你自己主题是什么。现在把默认主题更改成Next主题，在blog目录中（就是命令行的位置处于blog目录）打开命令行输入：</p>
+<pre><code class='language-shell' lang='shell'>git clone https://github.com/sharvaridesai/hexo-theme-edinburgh themes/edinburgh
+</code></pre>
+<p>这是将主题下载到blog目录的themes主题下的文件夹中。打开<strong>站点</strong>的_config.yml配置文件，修改主题为standrews</p>
+<p><img src="https://cdn.jsdelivr.net/gh/biowr/biowr.github.io/pic/picgo/image-20210218155350256.png" referrerpolicy="no-referrer" alt="image-20210218155350256"></p>
+<h3>学习MarkDown语法</h3>
+<p>推荐<a href='https://www.mdnice.com/' target='_blank' class='url'>https://www.mdnice.com/</a></p>
+<p>可以自行学习，导出md文件到博客目录下source/_post/</p>
+<p><img src="https://cdn.jsdelivr.net/gh/biowr/biowr.github.io/pic/picgo/image-20210218155621188.png" referrerpolicy="no-referrer" alt="image-20210218155621188"></p>
+<h3>发布文章</h3>
+<p>在写文章时，md文件头需要此文章的一些信息，如标题、封面等</p>
+<pre><code class='language----' lang='---'>---
+title: Flim 01
+cover_image: //cdn.jsdelivr.net/gh/ruiprime/ruiprime.github.io@master/images/00%20(1).jpg
+---
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/biowr/biowr.github.io/pic/picgo/image-20210218160024100.png" referrerpolicy="no-referrer" alt="image-20210218160024100"></p>
+<h3>使用图床</h3>
+<p>我用的md编辑器是Typora，图床软件用的是PicGo，使用GitHub仓库作为图床</p>
+<p><img src="https://cdn.jsdelivr.net/gh/biowr/biowr.github.io/pic/picgo/image-20210218160246871.png" referrerpolicy="no-referrer" alt="image-20210218160246871"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/biowr/biowr.github.io/pic/picgo/image-20210218160335057.png" referrerpolicy="no-referrer" alt="image-20210218160335057"></p>
+<p>最后就是创作时间。</p>
+<p>&nbsp;</p>
+
+
+            <!--文章末尾-->
+          
+<div class="hide-on-print">
+    <div class="info">Posted by <a href="https://rickywang.baklib.com/">Ricky</a> on <time datetime="2020-04-10">2020-04-15</time>. </div>
+    <div class="info">Tags: math, life.</div>
+</div>
+      </article>
+    </main>
+   
+<footer class="hide-on-print">© 2016 - <time><script>document.write(new Date().getFullYear())</script></time> <a href="/" rel="author">Rui Wang</a>.
+    <a href="/README.html">Blog README</a>.</footer>
+  
+
+</body></html>
