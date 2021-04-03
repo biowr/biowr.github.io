@@ -140,7 +140,7 @@ oncoplot(maf = maf,
          )
 dev.off()
 </code></pre>
-<p><img src="https://ruiprime-pic.cn-sh2.ufileos.com/pic/20210403125145.pdf" referrerpolicy="no-referrer"></p>
+<iframe height="300px" src="https://ruiprime-pic.cn-sh2.ufileos.com/pic/20210403125145.pdf" </iframe>
 <h2>用默认配色方案展示一个列表里的基因</h2>
 <p>把你感兴趣的基因名存到<code>easy_input.txt</code>文件里，每个基因为一行。就可以只画这几个基因，其中没发生突变的基因会被忽略。</p>
 <pre><code class='language-r' lang='r'>geneName &lt;- read.table(&quot;easy_input.txt&quot;,header = F,as.is = T)
@@ -153,7 +153,7 @@ oncoplot(maf = maf,
          )
 dev.off()
 </code></pre>
-<p><img src="https://ruiprime-pic.cn-sh2.ufileos.com/pic/20210403125202.pdf" referrerpolicy="no-referrer"></p>
+<iframe height="300px" src="https://ruiprime-pic.cn-sh2.ufileos.com/pic/20210403125202.pdf" </iframe>
 <h2>重新配色展示突变频率排名前20的基因</h2>
 <p>默认的颜色不够好看，还可以改配色</p>
 <pre><code class='language-r' lang='r'>#突变
@@ -195,7 +195,7 @@ oncoplot(maf = maf,
          writeMatrix =T)
 dev.off()
 </code></pre>
-<p><img src="https://ruiprime-pic.cn-sh2.ufileos.com/pic/20210403125248.pdf" referrerpolicy="no-referrer"></p>
+<iframe height="130px"  src="https://ruiprime-pic.cn-sh2.ufileos.com/pic/20210403125248.pdf" ></iframe>
 <pre><code class='language-r' lang='r'>sessionInfo()
 </code></pre>
 	
