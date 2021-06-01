@@ -374,7 +374,29 @@ problems in hypergraphs of small rank.</li>
   </div>
 	
 	
-   <footer class="hide-on-print"> <center> <a href="https://beian.miit.gov.cn"> 苏ICP备XXXXXX号</a> </center>
+<footer class="hide-on-print"> <center> <a href="https://beian.miit.gov.cn"> 苏ICP备XXXXXX号</a> </center>
+	    <center>      <span id="span"></span>
+             <script type="text/javascript">
+         function runtime(){
+        // 初始时间，日/月/年 时:分:秒
+        X = new Date("11/18/2016 8:32:00");
+        Y = new Date();
+        T = (Y.getTime()-X.getTime());
+        M = 24*60*60*1000;
+        a = T/M;
+        A = Math.floor(a);
+        b = (a-A)*24;
+        B = Math.floor(b);
+        c = (b-B)*60;
+        C = Math.floor((b-B)*60);
+        D = Math.floor((c-C)*60);
+        //信息写入到DIV中
+        span.innerHTML = A+"Days"+B+"h"+C+"m"+D+"s"
+    }
+    setInterval(runtime, 1000);
+            </script>   
+		    </center>
+		    
 	<center>   <script type="text/javascript" src="https://v1.cnzz.com/z_stat.php?id=1279968361&web_id=1279968361"></script> </center>
 	</footer>
 	
