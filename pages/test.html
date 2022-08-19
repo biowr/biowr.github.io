@@ -71,14 +71,76 @@ var player = new Aliplayer({
   "id": "player-con",
   "source": "//ali.cdn.kaiyanapp.com/1619494320171_26b8c3ab_1280x720.mp4?auth_key=1660923223-0-0-0be42349995649d0aa832287ae003eec",
   "width": "100%",
-  "height": "500px",
+  "height": "350px",
   "autoplay": true,
   "isLive": false,
   "rePlay": false,
   "playsinline": true,
   "preload": true,
   "controlBarVisibility": "hover",
-  "useH5Prism": true
+  "useH5Prism": true,
+  "skinLayout": [
+    {
+      "name": "H5Loading",
+      "align": "cc"
+    },
+    {
+      "name": "errorDisplay",
+      "align": "tlabs",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "name": "infoDisplay"
+    },
+    {
+      "name": "tooltip",
+      "align": "blabs",
+      "x": 0,
+      "y": 56
+    },
+    {
+      "name": "thumbnail"
+    },
+    {
+      "name": "controlBar",
+      "align": "blabs",
+      "x": 0,
+      "y": 0,
+      "children": [
+        {
+          "name": "progress",
+          "align": "blabs",
+          "x": 0,
+          "y": 44
+        },
+        {
+          "name": "playButton",
+          "align": "tl",
+          "x": 15,
+          "y": 12
+        },
+        {
+          "name": "timeDisplay",
+          "align": "tl",
+          "x": 10,
+          "y": 7
+        },
+        {
+          "name": "fullScreenButton",
+          "align": "tr",
+          "x": 10,
+          "y": 12
+        },
+        {
+          "name": "volume",
+          "align": "tr",
+          "x": 5,
+          "y": 10
+        }
+      ]
+    }
+  ]
 }, function (player) {
     console.log("The player is created");
   }
@@ -87,22 +149,8 @@ var player = new Aliplayer({
           
 <div>
 	
+
 	
-	
-    <center>       
-<video width="95%" poster="https://tva1.sinaimg.cn/large/007S8ZIlgy1gjpzit5gipj31g60sgqv5.jpg" controls="controls">
-  <source src="https://sourl.cn/MeFB9V" type="video/mp4" />
-  </object>
-</video>
-	  </center>   
-    
-  <center> The Perks of Being a Wallflower</center>   
-            <br>
-	</br>
-             
-    <img src="https://cdn.jsdelivr.net/gh/biowr/biowr.github.io@master/pic/wecanbeus.svg" alt="壁花少年">
-	    
-	    
 
 	   
 <tr>
