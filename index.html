@@ -38,8 +38,17 @@
       if (mathElements[i].tagName == "SPAN") { katex.render(texText.data, mathElements[i], { displayMode: mathElements[i].classList.contains("display"), throwOnError: false, macros:macros} );
     }}});
   </script>
+  <!-- 百度统计 -->
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?4ba60722347804b5aa4332404f1b43c4";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script> 
 
- 
   <!-- toggle selected publications 挑选的期刊 -->
   <script>
     function togglePublication() {
