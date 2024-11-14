@@ -67,14 +67,57 @@
             border-top: 1px solid #eee;
         }
 
-        .section h3 {
+        .appreciation-text {
+            font-size: 1.1em;
             color: #2c3e50;
-            margin: 0 0 10px 0;
+            margin: 0 auto 15px;
+            max-width: 400px;
+            position: relative;
+            padding: 10px;
         }
 
-        .section p {
-            margin: 5px 0 10px;
+        .appreciation-text::before,
+        .appreciation-text::after {
+            content: '"';
+            font-family: Georgia, serif;
+            font-size: 1.5em;
+            color: #4CAF50;
+            position: absolute;
+            opacity: 0.5;
+        }
+
+        .appreciation-text::before {
+            left: -15px;
+            top: -5px;
+        }
+
+        .appreciation-text::after {
+            right: -15px;
+            bottom: -15px;
+        }
+
+        .support-options {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        .support-option {
+            background: #f8f9fa;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
             color: #666;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .support-option:hover {
+            background: #4CAF50;
+            color: white;
+            border-color: #4CAF50;
         }
 
         .qr-code {
@@ -84,6 +127,11 @@
             background: #eee;
             border-radius: 8px;
             overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .qr-code:hover {
+            transform: scale(1.02);
         }
 
         .contact-author {
@@ -154,8 +202,14 @@
         </div>
 
         <div class="section">
-            <h3>赞赏码</h3>
-            <p>加个鸡腿🍗</p>
+            <div class="appreciation-text">
+                如果对您有所帮助，欢迎打赏支持
+            </div>
+            <div class="support-options">
+                <span class="support-option">☕️ 请喝杯咖啡</span>
+                <span class="support-option">🍗 加个鸡腿</span>
+                <span class="support-option">📚 买本好书</span>
+            </div>
             <div class="qr-code">
                 <img src="/pic/pay.jpg" width="100%" alt="赞赏码">
             </div>
@@ -163,7 +217,7 @@
 
         <div class="contact-author">
             <span class="contact-link">
-                联系作者,购买账号
+                联系作者,购买ChatGPT/Claude账号
                 <div class="contact-qr">
                     <img src="/pic/wx.webp" alt="联系作者">
                 </div>
