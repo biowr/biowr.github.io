@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endnote 最新版本下载</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #f5f5f0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(0deg, transparent 24%, rgba(200, 200, 200, .05) 25%, rgba(200, 200, 200, .05) 26%, transparent 27%, transparent 74%, rgba(200, 200, 200, .05) 75%, rgba(200, 200, 200, .05) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(200, 200, 200, .05) 25%, rgba(200, 200, 200, .05) 26%, transparent 27%, transparent 74%, rgba(200, 200, 200, .05) 75%, rgba(200, 200, 200, .05) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #site-title a {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        #site-title a:hover {
+            color: #764ba2;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.8rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        article {
+            background: white;
+            border-radius: 2px;
+            padding: 3rem;
+            max-width: 700px;
+            width: 100%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #d4d4d4;
+            animation: fadeIn 0.5s ease-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 1px;
+            background: #2c3e50;
+            border-radius: 0;
+        }
+
+        .content-box {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .payment-link {
+            display: inline-block;
+            color: #2c3e50;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            padding: 1rem 2rem;
+            border: 2px solid #2c3e50;
+            border-radius: 2px;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .payment-link:hover {
+            background: #2c3e50;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(44, 62, 80, 0.2);
+        }
+
+        .qr-container {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 2px;
+            display: inline-block;
+        }
+
+        .qr-container img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            border-radius: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            text-align: center;
+            color: #4a5568;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            article {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .qr-container {
+                padding: 1rem;
+            }
+        }
+
+        @media print {
+            .hide-on-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <article>
+            <h1>Endnote 最新版本下载</h1>
+            
+            <div class="content-box">
+                <a id="link-to-change" href='/pwd' target="_blank" class="payment-link">
+                    微信长按扫码支付后将跳转下载页面<br>
+                    <small style="font-size: 0.9rem; opacity: 0.8;">(未跳转请多刷新几次)</small>
+                </a>
+                
+                <div class="qr-container">
+                    <div id="image-to-change">
+                        <img src="https://jihulab.com/biowr/PicBed/-/raw/main/pictures/2022/10/pay.jpg" alt="支付二维码">
+                    </div>
+                </div>
+
+                <div class="disclaimer">
+                    <h3>⚠️ 免责声明</h3>
+                    <p>本站提供的软件仅供学习研究使用，请勿用于商业用途。</p>
+                    <p>下载后请在24小时内删除，如需长期使用请购买正版软件。</p>
+                    <p>使用本软件造成的一切后果由使用者自行承担，本站不承担任何责任。</p>
+                    <p>若侵犯了您的权益，请联系我们删除相关内容。</p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var visits = getCookie("visits") || 0;
+            visits++;
+            setCookie("visits", visits, 7);
+
+            if (visits > 1) {
+                var imageElement = document.getElementById("image-to-change");
+                if (imageElement) {
+                    imageElement.innerHTML = '<a href="https://mp.weixin.qq.com/s/1T3FcHUldzu_qUjI3mS8Rw" target="_blank" class="download-button"><img width="120" src="https://jihulab.com/biowr/PicBed/-/raw/main/pictures/2022/10/download.svg" alt="下载"></a>';
+                }
+
+                var payLinkElement = document.getElementById("link-to-change");
+                if (payLinkElement) {
+                    payLinkElement.setAttribute('href', 'https://mp.weixin.qq.com/s/1T3FcHUldzu_qUjI3mS8Rw');
+                    payLinkElement.innerHTML = '✓ 已支付，点击下载';
+                }
+            }
+        });
+
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days*24*60*60*1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+    </script>
+</body>
+</html>
