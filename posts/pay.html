@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#1e1e1e">
+  <meta name="description" content="根据参考截图制作的本地付款界面演示。">
+  <style>
+    /* D-DIN Condensed Regular — https://github.com/amcchord/datto-d-din
+Copyright (C) 2017 Datto Inc. https://www.datto.com/fonts/d-din,
+with Reserved Font Names "D-DIN".
+
+Copyright (C) 2017 Datto Inc. https://www.datto.com/fonts/d-din,
+with Reserved Font Names "D-DIN Condensed".
+
+Copyright (C) 2017 Datto Inc. https://www.datto.com/fonts/d-din,
+with Reserved Font Names "D-DIN Expanded".
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at: 
+http://scripts.sil.org/OFL
+
+-----------------------------------------------------------
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+-----------------------------------------------------------
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded, 
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+"Font Software" refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+"Reserved Font Name" refers to any names specified as such after the
+copyright statement(s).
+
+"Original Version" refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+"Modified Version" refers to any derivative made by adding to, deleting,
+or substituting -- in part or in whole -- any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+"Author" refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION & CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE. */
+    @font-face {
+      font-family: "Payment DIN Condensed";
+      src: url("data:font/woff2;base64,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") format("woff2");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+    :root {
+      color-scheme: dark;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", Arial, sans-serif;
+      font-size: min(3.712296984vw, 17.819025522px);
+      --page: #1e1e1e;
+      --surface: #252525;
+      --button: #343434;
+      --green: #85a72f;
+      --text: #f7f7f7;
+    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #171717; }
+    body { color: var(--text); overscroll-behavior: none; }
+    button, input { font: inherit; }
+    button { color: inherit; border: 0; padding: 0; cursor: pointer; background: transparent; touch-action: manipulation; }
+    button:focus-visible { outline: 2px solid #b2d457; outline-offset: 4px; }
+    button:disabled { cursor: default; }
+    button:not(:disabled):active { filter: brightness(.87); }
+    [hidden] { display: none !important; }
+    svg { display: block; width: 100%; height: 100%; }
+    .app { position: relative; width: 100%; max-width: 480px; height: 100%; height: 100dvh; margin: auto; overflow: hidden; isolation: isolate; background: var(--page); }
+    .page { position: absolute; inset: 0; }
+    .merchant-page { display: flex; flex-direction: column; }
+    .navigation { position: relative; flex: 0 0 4rem; display: flex; align-items: flex-start; justify-content: center; padding-top: .6875rem; }
+    .navigation h1 { margin: 0; font-size: 1.0625rem; line-height: 1.5rem; font-weight: 600; }
+    .back { position: absolute; top: .4375rem; left: .875rem; width: 2.5rem; height: 2rem; padding: .375rem; }
+    .back svg { stroke-width: 1.7; }
+    .merchant { flex: 0 0 6.1875rem; padding: 1.375rem 2rem 1.375rem; }
+    .merchant h2 { margin: 0; font-size: 1.6875rem; line-height: 2.375rem; font-weight: 600; letter-spacing: -.025rem; }
+    .merchant-info { display: flex; align-items: center; gap: .375rem; margin-top: .0625rem; color: #aeaeae; font-size: .65625rem; line-height: 1rem; }
+    .chevron { width: .4375rem; height: .4375rem; border-right: .1rem solid currentColor; border-bottom: .1rem solid currentColor; transform: rotate(45deg) translateY(-.125rem); }
+    .amount-card { position: relative; flex: 1; min-height: 15rem; padding: 2rem; background: var(--surface); border-top: 1px solid #363636; border-radius: .6875rem .6875rem 0 0; }
+    .amount-field { position: relative; display: flex; align-items: flex-start; gap: .375rem; min-height: 3.5rem; }
+    .currency { padding-top: .375rem; font-family: "Payment DIN Condensed", sans-serif; font-size: 1.875rem; line-height: 2.75rem; font-weight: 400; font-synthesis: none; }
+    .amount-input { width: 100%; min-width: 0; height: 3.5rem; padding: 0; border: 0; border-radius: 0; outline: none; box-shadow: none; appearance: none; -webkit-appearance: none; background: transparent; color: #fff; caret-color: #a5cb45; font-family: "Payment DIN Condensed", sans-serif; font-size: 2.875rem; line-height: 3.5rem; font-weight: 400; font-synthesis: none; }
+    .amount-input:focus, .amount-input:focus-visible { border: 0; outline: none; box-shadow: none; background: transparent; }
+    .amount-input::selection { background: #5c6a35; }
+    .actions { position: absolute; right: .875rem; bottom: max(2.625rem, env(safe-area-inset-bottom)); left: .875rem; display: grid; gap: 1.125rem; }
+    .pill { display: flex; align-items: center; justify-content: center; width: 100%; height: 3.5rem; border-radius: 1.75rem; font-size: 1.0625rem; font-weight: 500; }
+    .direct { flex-direction: column; gap: 0; background: var(--button); }
+    .direct .button-title { font-size: 1.0625rem; line-height: 1.375rem; }
+    .direct .button-caption { color: #828282; font-size: .625rem; line-height: .9375rem; font-weight: 400; }
+    .login { background: var(--green); }
+    .pill:disabled { color: #525252; background: var(--button); }
+    .direct:disabled .button-caption { color: #4d4d4d; }
+    .overlay { position: absolute; inset: 0; z-index: 10; }
+    .scrim { position: absolute; inset: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, .82); }
+    .sheet { position: absolute; right: 0; bottom: 0; left: 0; background: var(--surface); border-top: 1px solid #454545; border-radius: .6875rem .6875rem 0 0; animation: rise .2s ease-out; }
+    .sheet:focus { outline: none; }
+    .choice-sheet { height: 17.75rem; }
+    .sheet-header { position: relative; height: 4.1875rem; border-bottom: 1px solid #2f2f2f; }
+    .close { position: absolute; display: grid; place-items: center; width: 2.5rem; height: 2.5rem; padding: .6875rem; color: #f0f0f0; }
+    .close svg { stroke-width: 1.8; }
+    .sheet-header .close { top: .8125rem; right: .8125rem; }
+    .pending { display: flex; align-items: center; justify-content: space-between; margin: 1.375rem 2rem 0; font-size: 1.0625rem; line-height: 1.75rem; }
+    .pending-amount { color: #a4ca43; font-family: "DIN Alternate", "Arial Narrow", Arial, sans-serif; font-size: 1.5625rem; font-weight: 600; }
+    .wechat-button { position: absolute; bottom: 3rem; left: 2rem; width: calc(100% - 4rem); height: 3.6875rem; border-radius: 2rem; display: flex; justify-content: center; align-items: center; gap: .5rem; background: #0eba0f; font-size: 1.25rem; }
+    .wechat-icon { width: 1.25rem; height: 1.25rem; }
+    .order-page { background: var(--surface); }
+    .order-details { display: grid; gap: 1.875rem; margin: 0; padding: 3.75rem 1.8125rem 0 2rem; }
+    .detail-row { display: flex; align-items: center; justify-content: space-between; gap: .625rem; min-height: 1.5rem; font-size: 1.0625rem; line-height: 1.5rem; }
+    .detail-row dt, .detail-row dd { margin: 0; white-space: nowrap; font-weight: 400; }
+    .detail-row dd { text-align: right; letter-spacing: -.03rem; }
+    .order-pay { position: absolute; bottom: max(1rem, env(safe-area-inset-bottom)); left: 2rem; width: calc(100% - 3.5rem); height: 3.6875rem; background: #87a72f; border-radius: 2rem; font-size: 1.25rem; }
+    .success-page { background: var(--surface); }
+    .success-content { height: 100%; overflow-y: auto; padding: 4rem 2rem 11rem; }
+    .success-hero { text-align: center; }
+    .success-icon { width: 3.25rem; height: 3.25rem; margin: 0 auto 1.125rem; color: #9cc441; }
+    .success-title { margin: 0; color: #9cc441; font-size: 1.375rem; line-height: 2rem; font-weight: 500; outline: none; }
+    .success-merchant { margin: 1.625rem 0 .5rem; font-size: 1rem; color: #b1b1b1; }
+    .success-amount { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 2.625rem; line-height: 3.5rem; font-weight: 500; }
+    .success-amount .yuan { margin-right: .25rem; font-size: 1.625rem; }
+    .success-details { display: grid; gap: 1.125rem; margin: 2.5rem 0 0; padding-top: 1.75rem; border-top: 1px solid #333; }
+    .success-details .detail-row { font-size: .875rem; line-height: 1.5rem; }
+    .success-details dt { color: #949494; }
+    .success-details dd { white-space: normal; overflow-wrap: anywhere; }
+    .success-footer { position: absolute; right: 2rem; bottom: max(2.625rem, env(safe-area-inset-bottom)); left: 2rem; padding-top: 1rem; background: var(--surface); }
+    .success-note { margin: 0 0 1rem; color: #888; text-align: center; font-size: .6875rem; }
+    .success-finish { background: var(--green); }
+    .wallet-overlay .scrim { background: rgba(0, 0, 0, .5); }
+    .wallet-sheet { height: 42.1875rem; max-height: 100%; overflow-y: auto; border-top: 0; border-radius: .375rem .375rem 0 0; background: #1a1a1a; color: #d2d2d2; scrollbar-width: none; }
+    .wallet-sheet::-webkit-scrollbar { display: none; }
+    .wallet-close { top: .9375rem; left: .625rem; color: #cecece; }
+    .wallet-heading { height: 12.125rem; margin: 0 1.3125rem; padding-top: 5rem; text-align: center; border-bottom: 1px solid #252525; }
+    .wallet-heading h2 { margin: 0 0 .625rem; font-size: 1.1875rem; line-height: 1.75rem; font-weight: 400; }
+    .wallet-price { display: flex; align-items: baseline; justify-content: center; gap: .375rem; color: #d2d2d2; font-family: "DIN Alternate", "Helvetica Neue", Arial, sans-serif; font-size: 2.8125rem; line-height: 3.25rem; font-weight: 600; letter-spacing: .015rem; }
+    .wallet-price .yuan { font-size: 1.875rem; }
+    .payment-method { height: 7.125rem; margin: 0 1.3125rem; padding-top: .9375rem; }
+    .method-heading { display: flex; justify-content: space-between; align-items: center; color: #858585; font-size: 1rem; line-height: 1.75rem; }
+    .change-method { display: flex; align-items: center; gap: .4375rem; color: inherit; }
+    .change-method .chevron { width: .4375rem; height: .4375rem; border-width: 1px; }
+    .cash-card { display: flex; align-items: center; gap: .6875rem; height: 3.9375rem; margin-top: .4375rem; padding: 0 1.125rem; border-radius: .375rem; background: #2c2518; color: #a6a28e; font-size: 1rem; }
+    .coin { display: grid; place-items: center; width: 1.375rem; height: 1.375rem; border: .1875rem solid #ffda24; border-radius: 50%; color: #f2c510; background: #ffe768; font-size: 1rem; font-weight: 600; line-height: 1; }
+    .check { width: 1.3125rem; height: 1.125rem; margin-left: auto; color: #07b565; }
+    .pin-area { height: 6.1875rem; display: flex; align-items: center; justify-content: center; padding-bottom: .1875rem; }
+    .pin-dots { display: grid; grid-template-columns: repeat(6, 2.8125rem); gap: .5625rem; }
+    .pin-cell { display: grid; place-items: center; width: 2.8125rem; height: 2.8125rem; border-radius: .3125rem; background: #252525; }
+    .pin-cell.filled::after { content: ""; width: .5625rem; height: .5625rem; background: #cfcfcf; border-radius: 50%; }
+    .keypad { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(4, 3.875rem); background: #111; border-top: 1px solid #262626; }
+    .key { display: flex; align-items: center; justify-content: center; border-right: 1px solid #242424; border-bottom: 1px solid #242424; background: #1a1a1a; color: #cecece; font-size: 1.75rem; line-height: 1; font-family: "Helvetica Neue", Arial, sans-serif; font-weight: 400; }
+    .key:nth-child(3n) { border-right: 0; }
+    .key.empty, .key.delete { background: #111; border-bottom-color: #111; }
+    .key.delete { border-right: 0; }
+    .delete-icon { width: 1.4375rem; height: 1.1875rem; }
+    .wallet-safe-bottom { height: 1.25rem; background: #111; }
+    .info-sheet { padding-bottom: 2rem; }
+    .info-sheet .sheet-header { display: flex; align-items: center; justify-content: center; font-size: 1.0625rem; }
+    .info-content { padding: 1.75rem 2rem; font-size: 1rem; line-height: 1.75; }
+    .info-content p { margin: 0; color: #a9a9a9; font-size: .8125rem; }
+    .toast { position: absolute; z-index: 30; left: 50%; top: 46%; transform: translate(-50%, -50%); max-width: 86%; padding: .875rem 1.125rem; border-radius: .5rem; background: rgba(56, 56, 56, .96); color: #eee; font-size: .875rem; line-height: 1.5; text-align: center; pointer-events: none; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    @keyframes rise { from { transform: translateY(15%); opacity: .7; } to { transform: translateY(0); opacity: 1; } }
+    @media (max-height: 580px) { .actions { bottom: 1rem; gap: .625rem; } }
+    .app.keyboard-open .actions { right: 2rem; left: 2rem; bottom: calc(var(--keyboard-inset, 0px) + .5rem); gap: 1.125rem; }
+    .app.keyboard-open .amount-card { min-height: 0; }
+    .app.keyboard-compact .navigation { flex-basis: 3rem; }
+    .app.keyboard-compact .merchant { flex-basis: 4rem; padding-top: .25rem; padding-bottom: .5rem; }
+    .app.keyboard-compact .merchant h2 { font-size: 1.375rem; line-height: 2rem; }
+    .app.keyboard-compact .amount-card { padding-top: 1rem; }
+    .app.keyboard-compact .actions { gap: .5rem; }
+    .app.keyboard-compact .pill { height: 2.75rem; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
+  </style>
+</head>
+<body>
+  <main class="app" id="app">
+    <section class="page merchant-page" id="merchantPage" aria-label="向商家付款">
+      <header class="navigation">
+        <button type="button" class="back" id="backButton" aria-label="返回">
+          <svg viewBox="0 0 30 20" fill="none" stroke="currentColor"><path d="M10 1 1 10l9 9M1 10h29"/></svg>
+        </button>
+        <h1>向商家付款</h1>
+      </header>
+      <section class="merchant">
+        <h2 id="merchantName">宇池餐饮</h2>
+        <button type="button" class="merchant-info" id="merchantInfo">商家公示信息<span class="chevron" aria-hidden="true"></span></button>
+      </section>
+      <section class="amount-card" aria-label="付款金额">
+        <label class="amount-field" for="amountInput">
+          <span class="currency" aria-hidden="true">¥</span>
+          <span class="sr-only">付款金额（元）</span>
+          <input class="amount-input" id="amountInput" type="text" inputmode="decimal" autocomplete="off" maxlength="10" spellcheck="false" aria-label="付款金额（元）">
+        </label>
+      </section>
+      <div class="actions">
+        <button type="button" class="pill direct" id="directPay" disabled>
+          <span class="button-title">直接付款</span>
+          <span class="button-caption">不记录订单，不享有相关权益</span>
+        </button>
+        <button type="button" class="pill login" id="loginPay" disabled>登录并付款</button>
+      </div>
+    </section>
+
+    <section class="page order-page" id="orderPage" aria-label="订单确认" hidden>
+      <dl class="order-details">
+        <div class="detail-row"><dt>商品名称</dt><dd id="productName">美餐网–收银台支付</dd></div>
+        <div class="detail-row"><dt>时间</dt><dd id="orderTime"></dd></div>
+        <div class="detail-row"><dt>交易金额</dt><dd id="orderAmount">¥15.0</dd></div>
+      </dl>
+      <button type="button" class="order-pay" id="orderPay">支付</button>
+    </section>
+
+    <section class="page success-page" id="successPage" aria-label="支付成功演示" hidden>
+      <div class="success-content">
+        <div class="success-hero">
+          <div class="success-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="30" fill="currentColor"/><path d="m18 32 9 9 20-20" stroke="#252525" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h1 class="success-title" id="successTitle" tabindex="-1">支付成功</h1>
+          <p class="success-merchant" id="successMerchant">宇池餐饮</p>
+          <div class="success-amount"><span class="yuan">¥</span><span id="successAmount">15.00</span></div>
+        </div>
+        <dl class="success-details">
+          <div class="detail-row"><dt>商品名称</dt><dd id="successProduct">美餐网–收银台支付</dd></div>
+          <div class="detail-row"><dt>付款方式</dt><dd>零钱</dd></div>
+          <div class="detail-row"><dt>支付时间</dt><dd id="successTime"></dd></div>
+        </dl>
+      </div>
+      <footer class="success-footer">
+        <button type="button" class="pill success-finish" id="completeButton">完成</button>
+      </footer>
+    </section>
+
+    <section class="overlay" id="choiceOverlay" hidden aria-label="选择付款方式">
+      <button type="button" class="scrim" data-close="choice" aria-label="关闭付款方式"></button>
+      <section class="sheet choice-sheet" role="dialog" aria-modal="true" aria-labelledby="choiceTitle" tabindex="-1">
+        <header class="sheet-header">
+          <span class="sr-only" id="choiceTitle">选择付款方式</span>
+          <button type="button" class="close" data-close="choice" aria-label="关闭">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-linecap="round"><path d="m2 2 16 16M18 2 2 18"/></svg>
+          </button>
+        </header>
+        <div class="pending"><span>待支付</span><span class="pending-amount" id="pendingAmount">¥15.0</span></div>
+        <button type="button" class="wechat-button" id="wechatPay">
+          <span class="wechat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C5.9 2 1 6.2 1 11.4c0 2.8 1.5 5.3 4 7l-.9 3.3 3.7-1.8c1.3.5 2.7.7 4.2.7 6.1 0 11-4.2 11-9.3S18.1 2 12 2Z"/><path fill="#0eba0f" d="m5.2 10.2 3.3 5.2 13-8.8-1.1-1.3L9.3 11.6 6.6 8.9Z"/></svg></span>
+          <span>微信</span>
+        </button>
+      </section>
+    </section>
+
+    <section class="overlay wallet-overlay" id="walletOverlay" hidden aria-label="支付面板演示">
+      <button type="button" class="scrim" data-close="wallet" aria-label="关闭支付面板"></button>
+      <section class="sheet wallet-sheet" role="dialog" aria-modal="true" aria-labelledby="walletTitle" aria-describedby="demoNote" tabindex="-1">
+        <p class="sr-only" id="demoNote">这是本地界面演示，演示密码为159753。请勿输入真实支付密码；输入只在当前页面内存中校验，不保存或提交，也不会发起支付。</p>
+        <button type="button" class="close wallet-close" data-close="wallet" aria-label="关闭支付面板">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="m2 2 16 16M18 2 2 18"/></svg>
+        </button>
+        <div class="wallet-heading">
+          <h2 id="walletTitle">美餐</h2>
+          <div class="wallet-price"><span class="yuan">¥</span><span id="walletAmount">15.00</span></div>
+        </div>
+        <section class="payment-method" aria-label="付款方式">
+          <div class="method-heading"><span>付款方式</span><button type="button" class="change-method" id="changeMethod">更改<span class="chevron" aria-hidden="true"></span></button></div>
+          <div class="cash-card"><span class="coin" aria-hidden="true">¥</span><span>零钱</span><span class="check" aria-hidden="true"><svg viewBox="0 0 24 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 10 7 7L23 2"/></svg></span></div>
+        </section>
+        <div class="pin-area"><div class="pin-dots" role="img" aria-label="已输入 0 位演示圆点" id="pinDots"><span class="pin-cell"></span><span class="pin-cell"></span><span class="pin-cell"></span><span class="pin-cell"></span><span class="pin-cell"></span><span class="pin-cell"></span></div></div>
+        <div class="keypad" id="keypad" aria-label="演示数字键盘">
+          <button type="button" class="key" data-digit>1</button><button type="button" class="key" data-digit>2</button><button type="button" class="key" data-digit>3</button>
+          <button type="button" class="key" data-digit>4</button><button type="button" class="key" data-digit>5</button><button type="button" class="key" data-digit>6</button>
+          <button type="button" class="key" data-digit>7</button><button type="button" class="key" data-digit>8</button><button type="button" class="key" data-digit>9</button>
+          <span class="key empty" aria-hidden="true"></span><button type="button" class="key" data-digit>0</button>
+          <button type="button" class="key delete" id="deleteKey" aria-label="删除一位"><span class="delete-icon"><svg viewBox="0 0 26 21"><path fill="currentColor" d="M10 1h14a1 1 0 0 1 1 1v17a1 1 0 0 1-1 1H10L1 10.5Z"/><path stroke="#111" stroke-width="1.6" d="m11 6 9 9m0-9-9 9"/></svg></span></button>
+        </div>
+        <div class="wallet-safe-bottom"></div>
+      </section>
+    </section>
+
+    <section class="overlay" id="infoOverlay" hidden aria-label="商家公示信息">
+      <button type="button" class="scrim" data-close="info" aria-label="关闭商家信息"></button>
+      <section class="sheet info-sheet" role="dialog" aria-modal="true" aria-labelledby="infoTitle" tabindex="-1">
+        <header class="sheet-header"><span id="infoTitle">商家公示信息</span><button type="button" class="close" data-close="info" aria-label="关闭"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor"><path d="m2 2 16 16M18 2 2 18"/></svg></button></header>
+        <div class="info-content"><div id="infoMerchantName">宇池餐饮</div><p>界面演示，商家资料以实际公示信息为准。</p></div>
+      </section>
+    </section>
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  </main>
+  <script>
+    (() => {
+      'use strict';
+      // 可修改这里的展示文案；所有交互都在浏览器本地完成。
+      const CONFIG = {
+        merchant: '宇池餐饮',
+        product: '美餐网–收银台支付',
+        payee: '美餐',
+        timeZone: 'Asia/Shanghai',
+        demoPassword: '159753'
+      };
+      const $ = id => document.getElementById(id);
+      const params = new URLSearchParams(location.search);
+      const overlays = { choice: $('choiceOverlay'), wallet: $('walletOverlay'), info: $('infoOverlay') };
+      const pages = { merchant: $('merchantPage'), order: $('orderPage'), success: $('successPage') };
+      let activeOverlay = null;
+      let returnFocus = null;
+      let pinValue = ''; // 仅在页面内存中校验固定演示密码，关闭或校验完成即清空。
+      let toastTimer;
+      let completionTimer;
+      let amount = '';
+      let transactionTime = '';
+
+      $('merchantName').textContent = CONFIG.merchant;
+      $('infoMerchantName').textContent = CONFIG.merchant;
+      $('productName').textContent = CONFIG.product;
+      $('walletTitle').textContent = CONFIG.payee;
+      $('successMerchant').textContent = CONFIG.merchant;
+      $('successProduct').textContent = CONFIG.product;
+      const timeFormatter = new Intl.DateTimeFormat('zh-CN', {
+        timeZone: CONFIG.timeZone,
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23'
+      });
+      function formatCurrentTime() {
+        const parts = Object.fromEntries(timeFormatter.formatToParts(new Date()).map(part => [part.type, part.value]));
+        return `${parts.year}–${parts.month}–${parts.day} ${parts.hour}:${parts.minute}:${parts.second}`;
+      }
+      function recordTransactionTime() {
+        transactionTime = formatCurrentTime();
+        $('orderTime').textContent = transactionTime;
+      }
+
+      // 跟随键盘实际占用的可视区域；页面已缩小时不再重复加键盘高度。
+      const viewport = window.visualViewport;
+      let viewportBaseline = window.innerHeight;
+      let viewportWidth = window.innerWidth;
+      let amountKeyboardSession = false;
+      let rotatedKeyboardHeight = null;
+      let keyboardFrame = 0;
+      function resetKeyboardLayout() {
+        amountKeyboardSession = false;
+        rotatedKeyboardHeight = null;
+        $('app').classList.remove('keyboard-open', 'keyboard-compact');
+        $('app').style.setProperty('--keyboard-inset', '0px');
+      }
+      function syncKeyboardLayout() {
+        keyboardFrame = 0;
+        const focused = document.activeElement === $('amountInput');
+        const visibleHeight = viewport ? viewport.height : window.innerHeight;
+        const visibleTop = viewport ? viewport.offsetTop : 0;
+        const scale = viewport ? viewport.scale : 1;
+        if (Math.abs(window.innerWidth - viewportWidth) > 60) {
+          rotatedKeyboardHeight = amountKeyboardSession && $('app').classList.contains('keyboard-open') ? visibleHeight : null;
+          viewportWidth = window.innerWidth;
+          viewportBaseline = Math.max(window.innerHeight, visibleHeight);
+        }
+        if (rotatedKeyboardHeight !== null) {
+          if (visibleHeight - rotatedKeyboardHeight > 100) {
+            rotatedKeyboardHeight = null;
+            viewportBaseline = Math.max(window.innerHeight, visibleHeight);
+          } else rotatedKeyboardHeight = Math.min(rotatedKeyboardHeight, visibleHeight);
+        }
+        const appBottom = $('app').getBoundingClientRect().bottom;
+        const inset = Math.max(0, appBottom - visibleTop - visibleHeight);
+        const threshold = Math.max(80, viewportBaseline * .12);
+        const reduced = viewportBaseline - visibleHeight > threshold || inset > threshold || rotatedKeyboardHeight !== null;
+        const keyboardOpen = amountKeyboardSession && !activeOverlay && !pages.merchant.hidden && Math.abs(scale - 1) < .05 && reduced;
+        $('app').classList.toggle('keyboard-open', keyboardOpen);
+        $('app').classList.toggle('keyboard-compact', keyboardOpen && visibleHeight < 360);
+        $('app').style.setProperty('--keyboard-inset', keyboardOpen ? `${Math.round(inset)}px` : '0px');
+        // blur 早于按钮 click；等视口恢复再结束会话，避免按钮先移走。
+        if (!focused && !reduced) amountKeyboardSession = false;
+        if (!amountKeyboardSession && Math.abs(scale - 1) < .05) viewportBaseline = Math.max(window.innerHeight, visibleHeight);
+      }
+      function scheduleKeyboardLayout() {
+        if (!keyboardFrame) keyboardFrame = requestAnimationFrame(syncKeyboardLayout);
+      }
+      $('amountInput').addEventListener('focus', () => {
+        if (!amountKeyboardSession) viewportBaseline = Math.max(viewportBaseline, window.innerHeight, viewport ? viewport.height : 0);
+        amountKeyboardSession = true;
+        scheduleKeyboardLayout();
+      });
+      $('amountInput').addEventListener('blur', scheduleKeyboardLayout);
+      window.addEventListener('resize', scheduleKeyboardLayout, { passive: true });
+      window.addEventListener('scroll', scheduleKeyboardLayout, { passive: true });
+      viewport?.addEventListener('resize', scheduleKeyboardLayout, { passive: true });
+      viewport?.addEventListener('scroll', scheduleKeyboardLayout, { passive: true });
+      syncKeyboardLayout();
+
+      function cleanAmount(value) {
+        let next = value.replace(/[^\d.]/g, '');
+        const point = next.indexOf('.');
+        if (point !== -1) next = next.slice(0, point + 1) + next.slice(point + 1).replace(/\./g, '').slice(0, 2);
+        if (next.startsWith('.')) next = '0' + next;
+        const pieces = next.split('.');
+        pieces[0] = pieces[0].replace(/^0+(?=\d)/, '').slice(0, 6);
+        return pieces.join('.');
+      }
+
+      function setAmount(value) {
+        amount = cleanAmount(value);
+        $('amountInput').value = amount;
+        const valid = Number(amount) > 0;
+        $('directPay').disabled = !valid;
+        $('loginPay').disabled = !valid;
+        const numeric = Number(amount) || 0;
+        const short = numeric.toFixed(2).replace(/0$/, '');
+        $('pendingAmount').textContent = '¥' + short;
+        $('orderAmount').textContent = '¥' + short;
+        $('walletAmount').textContent = numeric.toFixed(2);
+        $('successAmount').textContent = numeric.toFixed(2);
+      }
+
+      function notify(message, duration = 2100) {
+        clearTimeout(toastTimer);
+        $('toast').textContent = message;
+        $('toast').hidden = false;
+        toastTimer = setTimeout(() => { $('toast').hidden = true; }, duration);
+      }
+
+      function renderPin() {
+        [...$('pinDots').children].forEach((cell, index) => cell.classList.toggle('filled', index < pinValue.length));
+        $('pinDots').setAttribute('aria-label', `已输入 ${pinValue.length} 位演示密码`);
+      }
+
+      function setPage(page) {
+        Object.entries(pages).forEach(([name, element]) => { element.hidden = name !== page; });
+        $('app').dataset.page = page;
+        resetKeyboardLayout();
+      }
+
+      function openOverlay(name, focus = true) {
+        if (activeOverlay) closeOverlay(false);
+        returnFocus = document.activeElement;
+        document.activeElement?.blur();
+        activeOverlay = name;
+        resetKeyboardLayout();
+        Object.values(pages).forEach(page => { page.inert = true; });
+        overlays[name].hidden = false;
+        if (name === 'wallet') {
+          pinValue = '';
+          clearTimeout(completionTimer);
+          renderPin();
+        }
+        if (focus) overlays[name].querySelector('[role="dialog"]').focus({ preventScroll: true });
+      }
+
+      function closeOverlay(restoreFocus = true) {
+        if (!activeOverlay) return;
+        clearTimeout(completionTimer);
+        overlays[activeOverlay].hidden = true;
+        activeOverlay = null;
+        Object.values(pages).forEach(page => { page.inert = false; });
+        pinValue = '';
+        renderPin();
+        if (restoreFocus && returnFocus && !returnFocus.closest('[hidden]')) returnFocus.focus({ preventScroll: true });
+      }
+
+      function openChoice() {
+        if (!(Number(amount) > 0)) return;
+        openOverlay('choice');
+      }
+
+      $('amountInput').addEventListener('input', event => setAmount(event.target.value));
+      $('amountInput').addEventListener('keydown', event => {
+        if (event.key === 'Enter') { event.preventDefault(); $('amountInput').blur(); openChoice(); }
+      });
+      $('directPay').addEventListener('click', openChoice);
+      // 截图没有登录表单，按钮直接演示相同付款弹层，不采集账号。
+      $('loginPay').addEventListener('click', openChoice);
+      $('merchantInfo').addEventListener('click', () => openOverlay('info'));
+      document.querySelectorAll('[data-close]').forEach(button => button.addEventListener('click', () => closeOverlay()));
+      $('wechatPay').addEventListener('click', () => {
+        recordTransactionTime();
+        closeOverlay(false);
+        setPage('order');
+        $('orderPay').focus({ preventScroll: true });
+      });
+      $('orderPay').addEventListener('click', () => {
+        if (!transactionTime) recordTransactionTime();
+        openOverlay('wallet');
+      });
+      $('changeMethod').addEventListener('click', () => notify('演示付款方式：零钱'));
+      $('backButton').addEventListener('click', () => {
+        if (amount) setAmount('');
+        else notify('当前已是演示首页');
+      });
+      $('completeButton').addEventListener('click', () => {
+        setAmount('');
+        transactionTime = '';
+        $('orderTime').textContent = '';
+        $('successTime').textContent = '';
+        setPage('merchant');
+        $('backButton').focus({ preventScroll: true });
+      });
+
+      function handlePinKey(key) {
+        if (activeOverlay !== 'wallet') return;
+        if (key === 'Backspace' || key === 'Delete') {
+          clearTimeout(completionTimer);
+          pinValue = pinValue.slice(0, -1);
+        } else if (/^\d$/.test(key)) {
+          if (pinValue.length >= 6) return;
+          clearTimeout(toastTimer);
+          $('toast').hidden = true;
+          pinValue += key;
+          if (pinValue.length === 6) completionTimer = setTimeout(() => {
+            if (activeOverlay !== 'wallet' || pinValue.length !== 6) return;
+            if (pinValue !== CONFIG.demoPassword) {
+              pinValue = '';
+              renderPin();
+              notify('密码错误，请重新输入');
+              return;
+            }
+            $('successTime').textContent = transactionTime || formatCurrentTime();
+            closeOverlay(false);
+            setPage('success');
+            $('successTitle').focus({ preventScroll: true });
+          }, 350);
+        }
+        renderPin();
+      }
+      $('keypad').addEventListener('click', event => {
+        if (event.target.closest('#deleteKey')) handlePinKey('Backspace');
+        else {
+          const digitButton = event.target.closest('[data-digit]');
+          if (digitButton) handlePinKey(digitButton.textContent.trim());
+        }
+      });
+      document.addEventListener('keydown', event => {
+        if (!activeOverlay) return;
+        if (event.key === 'Escape') { event.preventDefault(); closeOverlay(); return; }
+        if (activeOverlay === 'wallet' && !event.ctrlKey && !event.metaKey && !event.altKey && (/^\d$/.test(event.key) || event.key === 'Backspace' || event.key === 'Delete')) {
+          event.preventDefault();
+          if (!event.repeat) handlePinKey(event.key);
+          return;
+        }
+        if (event.key === 'Tab') {
+          const items = [...overlays[activeOverlay].querySelectorAll('[role="dialog"] button:not(:disabled)')];
+          if (!items.length) return;
+          const first = items[0], last = items[items.length - 1];
+          if (event.shiftKey && (document.activeElement === first || document.activeElement.getAttribute('role') === 'dialog')) { event.preventDefault(); last.focus(); }
+          else if (!event.shiftKey && (document.activeElement === last || document.activeElement.getAttribute('role') === 'dialog')) { event.preventDefault(); first.focus(); }
+        }
+      });
+      // 直达截图状态：?screen=empty|amount|method|order|wallet&amount=15
+      const screen = params.get('screen') || 'empty';
+      setAmount(params.get('amount') || (screen === 'empty' ? '' : '15'));
+      setPage(['order', 'wallet'].includes(screen) ? 'order' : 'merchant');
+      if (['order', 'wallet'].includes(screen)) recordTransactionTime();
+      if (screen === 'method') openOverlay('choice');
+      if (screen === 'wallet') openOverlay('wallet');
+    })();
+  </script>
+</body>
+</html>
